@@ -1,7 +1,7 @@
 - name: Adds percona key
   apt_key:
     keyserver: keys.gnupg.net
-    id: 1C4CBDCDCD2EFD2A
+    id: 9334A25F8507EFA5
 
 - name: Adds percona repositories
   apt_repository:
@@ -9,4 +9,6 @@
     state: present
 
 - name: Installs percona client libs
-  apt: pkg="percona-server-client-{{ percona_client_version }}"
+  apt:
+    pkg: "percona-server-client-{{ percona_client_version }}"
+    update_cache: yes
